@@ -6,7 +6,7 @@ body {
     align-items: center;
     height: 100vh;
     background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ffecd2, #fcb69f);
-    overflow: hidden; /* Prevent scrolling */
+    overflow: hidden;
     margin: 0;
     position: relative;
 }
@@ -14,16 +14,16 @@ body {
 .container {
     text-align: center;
     border: 2px solid #f2f2f2;
-    padding: 20px;  /* Reduced padding */
+    padding: 20px;  /* Adjusted padding */
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center the content horizontally */
-    justify-content: center; /* Center the content vertically */
-    width: 100%;
-    max-width: 500px; /* Max width for larger screens */
+    align-items: center;  /* Centering content */
+    justify-content: center;
+    width: 90%;  /* Adjusted for smaller screens */
+    max-width: 600px;  /* Limit width for larger screens */
     margin: 0 auto;
 }
 
@@ -33,7 +33,8 @@ body {
 
 h1 {
     color: #ff6b6b;
-    font-size: 22px;
+    font-size: 24px; /* Adjusted font size */
+    margin-bottom: 10px;
 }
 
 button {
@@ -46,6 +47,7 @@ button {
     background-color: #ff6b6b;
     color: white;
     transition: background-color 0.3s ease-in-out;
+    width: 80%;  /* Adjusted for consistency */
 }
 
 button:hover {
@@ -61,19 +63,18 @@ input {
 }
 
 .option {
-    padding: 15px;
-    font-size: 16px;
+    padding: 20px;
+    font-size: 18px;
     margin: 10px;
     border-radius: 10px;
     border: 2px solid transparent;
     cursor: pointer;
     background-color: #f2f2f2;
     color: #333;
-    width: 80%; /* Width reduced to ensure it's centered */
+    width: 100%;  /* Full width */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
 .option.selected {
@@ -84,74 +85,51 @@ input {
     background-color: #ffebeb;
 }
 
+img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;  /* Control the size of images */
+    border-radius: 15px;
+    margin: 10px 0;
+}
+
 .options-grid {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     width: 100%;
-}
-
-.option img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 2px solid transparent;
-    object-fit: cover;
-    transition: border-color 0.3s;
-}
-
-.option:hover img {
-    border-color: #ff6b6b;
 }
 
 input[type="range"] {
     width: 100%;
-    height: 10px;
+    height: 15px;
     background: linear-gradient(to right, #ff0080, #ff8c00, #ffff00, #8cff00, #00ffcc);
     border-radius: 10px;
     outline: none;
 }
 
-input[type="range"]::-webkit-slider-thumb {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #fff;
-    border: 2px solid #ff6b6b;
-    cursor: pointer;
-}
-
 @media only screen and (max-width: 600px) {
-    body {
-        flex-direction: column;
-        padding: 10px;
-    }
-
     .container {
-        width: 100%;
-        padding: 10px;
+        width: 95%;
+        padding: 15px;
     }
 
     h1 {
         font-size: 20px;
     }
 
-    .option {
-        padding: 10px;
-        font-size: 14px;
-        margin: 5px;
-        width: 100%;  /* Take full width in mobile */
-    }
-
-    .option img {
-        width: 60px;
-        height: 60px;
-    }
-
     button {
         font-size: 14px;
         padding: 8px 16px;
+    }
+
+    .option {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    img {
+        max-width: 80%;
     }
 }
 
