@@ -6,11 +6,10 @@ body {
     align-items: center;
     height: 100vh;
     background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ffecd2, #fcb69f);
-    overflow: hidden; /* Prevent scrolling */
+    overflow: auto; /* Allow scrolling */
     margin: 0;
     position: relative;
 }
-
 
 .container {
     text-align: center;
@@ -21,6 +20,8 @@ body {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     display: none;
     width: 60%;
+    max-height: 90vh; /* Set max height to allow scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .container.active {
@@ -122,6 +123,8 @@ input[type="range"]::-webkit-slider-thumb {
     .container {
         width: 90%;
         padding: 20px;
+        max-height: 90vh; /* Ensure container doesn't overflow */
+        overflow-y: auto; /* Enable scrolling within the container */
     }
 
     h1 {
@@ -161,7 +164,7 @@ input[type="range"] {
     appearance: none;
     width: 100%;
     height: 15px;
-    background: linear-gradient(to right, #ff0080, #ff8c00, #ffff00, #8cff00, #00ffcc); /* Colorful gradient */
+    background: linear-gradient(to right, #ff0080, #ff8c00, #ffff00, #8cff00, #00ffcc);
     border-radius: 10px;
     outline: none;
 }
