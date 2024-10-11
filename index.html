@@ -1,181 +1,139 @@
-/* General body styles */
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ffecd2, #fcb69f);
-    margin: 0;
-    position: relative;
-    overflow: hidden;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>Slide by Slide Interaction</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Slide 1: Initial Date Invitation -->
+<div class="container active" id="slide1">
+    <h1>Would you like to go out with me for a date?</h1>
+    <button onclick="showIntermediateSlide()">Yes ❤️</button>
+    <button onclick="showNoSlide()">No 😢</button>
+</div>
 
-/* Make container scrollable */
-.container {
-    text-align: center;
-    padding: 50px;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    display: none;
-    width: 60%;
-    max-width: 800px;
-    max-height: 100vh; /* Set max height to viewport height */
-    overflow-y: auto;  /* Enable vertical scrolling */
-}
-
-.container.active {
-    display: block;
-}
-
-h1 {
-    color: #ff6b6b;
-    font-size: 28px;
-}
-
-button {
-    padding: 15px 30px;
-    font-size: 20px;
-    margin: 20px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    background-color: #ff6b6b;
-    color: white;
-    transition: background-color 0.3s ease-in-out;
-}
-
-button:hover {
-    background-color: #ff4a4a;
-}
-
-input {
-    padding: 20px;
-    font-size: 20px;
-    margin: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.option {
-    padding: 10px;
-    font-size: 14px;
-    margin: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: #f2f2f2;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: calc(50% - 20px); /* Two items per row */
-}
-
-.option.selected {
-    background-color: #ffebeb;
-}
-
-.options-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 10px 0;
-}
-
-/* Adjust image size */
-.option img {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    object-fit: cover;
-    transition: transform 0.3s;
-}
-
-.option:hover img {
-    transform: scale(1.05);
-}
-
-/* Media query for mobile screens (max-width: 600px) */
-@media only screen and (max-width: 600px) {
-    .container {
-        width: 95%;
-        padding: 20px;
-    }
-
-    h1 {
-        font-size: 22px;
-    }
-
-    button {
-        font-size: 16px;
-        padding: 10px 20px;
-    }
-
-    input {
-        padding: 15px;
-        font-size: 16px;
-        margin: 10px;
-    }
-
-    .option {
-        padding: 10px;
-        font-size: 12px;
-        margin: 10px;
-        width: calc(50% - 10px); /* Two items per row */
-    }
-
-    .options-grid {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 5px;
-    }
-
-    .option img {
-        width: 80px;
-        height: 80px;
-    }
-}
+<!-- Slide 2: Intermediate Slide -->
+<div class="container" id="slide2">
+    <h1>YEAYYY!!! DON'T GO ANYWHERE</h1>
+    <img src="https://i.giphy.com/mUYtAsf6G3i4wQDDCC.webp" alt="Excited GIF" style="width: 250px; margin: 50px auto; display: block;">
+    
+    <button onclick="showDateSlide()">(づ｡◕‿‿◕｡)づ CLICK ME</button>
+    <button class="back-button" onclick="goBack('slide1')">Back</button> <!-- Back button -->
+</div>
 
 
-/* Colorful range slider styles */
-input[type="range"] {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    height: 15px;
-    background: linear-gradient(to right, #ff0080, #ff8c00, #ffff00, #8cff00, #00ffcc); /* Colorful gradient */
-    border-radius: 10px;
-    outline: none;
-}
+<!-- Slide 3: Date and Time Picker -->
+<div class="container" id="slide3">
+    <h1>When are you free?</h1>
+    <input type="date" id="dateInput">
+    <input type="time" id="timeInput">
+    <button onclick="confirmDate()">( づ｡◕‿‿◕｡)づ CLICK ME</button>
+    <button class="back-button" onclick="goBack('slide2')">Back</button> <!-- Back button -->
+</div>
 
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #fff;
-    border: 2px solid #ff6b6b;
-    cursor: pointer;
-}
+<!-- Slide 4: What Do You Want to Do? -->
+<div class="container" id="activitySlide">
+    <h1>What do you want to do?</h1>
+    <div class="option" id="netflix" onclick="selectActivity('netflix')">
+        Netflix and Chill 🍿
+    </div>
+    <div class="option" id="eatout" onclick="selectActivity('eatout')">
+        Go Out to Eat 🍽️
+    </div>
+    <button onclick="continueActivity()">Continue</button>
+    <button class="back-button" onclick="goBack('slide3')">Back</button> <!-- Back button -->
+</div>
 
-input[type="range"]::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #fff;
-    border: 2px solid #ff6b6b;
-    cursor: pointer;
-}
+<!-- Slide 5: Netflix and Chill Options -->
+<div class="container" id="netflixOptionSlide">
+    <h1>What do you want to watch?</h1>
+    <div class="options-grid">
+        <div class="option" id="option1" onclick="selectNetflixOption(1)">
+            <img src="https://static2.vieon.vn/vieplay-image/poster_v4/2022/06/07/t0z9ceyq_660x946-2n1d.jpg" alt="Option 1">
+            <p>2 ngày 1 đêm</p>
+        </div>
+        <div class="option" id="option2" onclick="selectNetflixOption(2)">
+            <img src="https://i.scdn.co/image/ab67616d0000b273e623dffa87176f17458e71e5" alt="Option 2">
+            <p>Rap Viet</p>
+        </div>
+        <div class="option" id="option3" onclick="selectNetflixOption(3)">
+            <img src="https://i.scdn.co/image/ab67616d0000b273e6e6a2b1805d5f96601a4fc0" alt="Option 3">
+            <p>Our Songs</p>
+        </div>
+        <div class="option" id="option4" onclick="selectNetflixOption(4)">
+            <img src="https://i.ytimg.com/vi/ZMak63mHq5Y/maxresdefault.jpg" alt="Option 4">
+            <p>Netflix</p>
+        </div>
+        <div class="option" id="option5" onclick="selectNetflixOption(5)">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-o6N1JeOKQ5TyHIMcCfJiCgEBpF0LdL_bqD-oQwjVDwPF6prGWzlZnUYuawM0Cb7ld_g&usqp=CAU" alt="Option 5">
+            <p>ỌC ỌC ỌC</p>
+        </div>
+    </div>
+    <button id="continueNetflix" onclick="continueNetflix()">Continue</button>
+    <button class="back-button" onclick="goBack('activitySlide')">Back</button> <!-- Back button -->
+</div>
 
-input[type="range"]::-ms-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #fff;
-    border: 2px solid #ff6b6b;
-    cursor: pointer;
-}
+<!-- Slide 6: Food Menu -->
+<div class="container" id="foodMenuSlide">
+    <h1>Where do you want to eat?</h1>
+    <div class="options-grid">
+        <div class="option" id="food1" onclick="selectOption(1)">
+            <img src="https://images.squarespace-cdn.com/content/v1/66b58b55b251b639d5c85f1e/fcd81e90-4651-4359-98a8-c37afbb2be4c/best+asian+food+in+lone+mountain+centennial+hills+in+las+vegas+north+summerline+3.png" alt="Korean BBQ">
+            <p>Korean BBQ</p>
+        </div>
+        <div class="option" id="food2" onclick="selectOption(2)">
+            <img src="https://ik.imagekit.io/awwybhhmo/satellite_images/japanese/gray/about_us/16.jpg?tr=w-3840" alt="Sushi">
+            <p>Sushi</p>
+        </div>
+        <div class="option" id="food3" onclick="selectOption(3)">
+            <img src="https://s3-media0.fl.yelpcdn.com/bphoto/L_MsM4zQdztIeEiR491mNg/1000s.jpg" alt="Hotpot">
+            <p>Hotpot</p>
+        </div>
+        <div class="option" id="food4" onclick="selectOption(4)">
+            <img src="https://www.wellplated.com/wp-content/uploads/2022/05/Juicy-Air-Fryer-Steak-Recipe.jpg" alt="Steak">
+            <p>Steak</p>
+        </div>
+    </div>
+    <button id="continueFood" onclick="continueSelection()">Continue</button>
+    <button class="back-button" onclick="goBack('activitySlide')">Back</button> <!-- Back button -->
+</div>
+
+<!-- Slide 7: Rating Slide -->
+<div class="container" id="ratingSlide">
+    <h1>🥺💖</h1>
+    <img src="https://i.pinimg.com/originals/ce/6f/64/ce6f64ad7e871ffd97d75e8153136f6c.gif" alt="Cute Cat" style="width: 150px; margin: 20px auto;">
+    
+    <div class="rating-container" style="margin: 40px 0;">
+        <p style="font-family: 'Arial', sans-serif; font-size: 24px; color: #ff6b6b;">
+            Rate how excited are you
+        </p>
+        <input type="range" min="0" max="10" value="5" class="slider" id="excitementSlider" style="width: 70%; height: 15px;">
+        <p class="rating-text" style="font-family: 'Arial', sans-serif; font-size: 18px; margin-top: 20px;">
+            NAYY OR YAYYYY <span id="excitementValue">5</span>/10
+        </p>
+    </div>
+
+    <button onclick="submitRating()">Continue</button>
+    <button class="back-button" onclick="goBack('netflixOptionSlide')">Back</button> <!-- Back button -->
+</div>
+
+<!-- Slide 8: No Option Slide -->
+<div class="container" id="noSlide">
+    <h1>OOPS! Maybe next time 😢</h1>
+    <img src="https://media.giphy.com/media/12XDYvMJNcmLgQ/giphy.gif" alt="Oops GIF" style="width: 250px;">
+    <button class="back-button" onclick="goBack('slide1')">Back</button> <!-- Back button -->
+</div>
+
+<!-- Final Slide -->
+<div class="container" id="seeYouSoonSlide">
+    <h1>See you soon! ❤️</h1>
+    <img src="https://c.tenor.com/P9mZRMbhk4AAAAAC/tenor.gif" alt="Happy Cat" style="width: 300px;">
+    <p>Can't wait to see you on <span id="selectedDate"></span> at <span id="selectedTime"></span>.</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>
