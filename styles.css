@@ -18,24 +18,27 @@ body {
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    display: none;
-    width: 100%; /* Use full width of the screen */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+    justify-content: center; /* Center the content vertically */
+    width: 100%;
     max-width: 500px; /* Max width for larger screens */
-    margin: 0 auto;  /* Center the container */
+    margin: 0 auto;
 }
 
 .container.active {
-    display: block;
+    display: flex;
 }
 
 h1 {
     color: #ff6b6b;
-    font-size: 22px;  /* Reduced font size */
+    font-size: 22px;
 }
 
 button {
-    padding: 10px 20px;  /* Reduced padding */
-    font-size: 16px;  /* Reduced font size */
+    padding: 10px 20px;
+    font-size: 16px;
     margin: 10px;
     border-radius: 10px;
     border: none;
@@ -50,25 +53,27 @@ button:hover {
 }
 
 input {
-    padding: 15px;  /* Reduced padding */
-    font-size: 16px;  /* Reduced font size */
+    padding: 15px;
+    font-size: 16px;
     margin: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
 
 .option {
-    padding: 15px;  /* Reduced padding */
-    font-size: 16px;  /* Reduced font size */
-    margin: 10px;  /* Reduced margin */
+    padding: 15px;
+    font-size: 16px;
+    margin: 10px;
     border-radius: 10px;
     border: 2px solid transparent;
     cursor: pointer;
     background-color: #f2f2f2;
     color: #333;
-    width: 45%;  /* Each option takes 45% of the container width */
-    display: inline-block;  /* Allows options to sit next to each other */
-    vertical-align: top;
+    width: 80%; /* Width reduced to ensure it's centered */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .option.selected {
@@ -81,13 +86,15 @@ input {
 
 .options-grid {
     display: flex;
-    justify-content: space-between;  /* Spread options evenly */
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .option img {
-    width: 80px;  /* Reduced image size */
-    height: 80px;  /* Reduced image size */
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     border: 2px solid transparent;
     object-fit: cover;
@@ -115,32 +122,36 @@ input[type="range"]::-webkit-slider-thumb {
     cursor: pointer;
 }
 
-/* Adjust layout for small screens */
 @media only screen and (max-width: 600px) {
+    body {
+        flex-direction: column;
+        padding: 10px;
+    }
+
     .container {
         width: 100%;
-        padding: 10px;  /* Further reduced padding for small screens */
+        padding: 10px;
     }
 
     h1 {
-        font-size: 20px;  /* Reduced heading size */
+        font-size: 20px;
     }
 
     .option {
         padding: 10px;
         font-size: 14px;
         margin: 5px;
-        width: 45%;  /* Keep two options side by side */
+        width: 100%;  /* Take full width in mobile */
     }
 
     .option img {
-        width: 60px;  /* Further reduced image size */
+        width: 60px;
         height: 60px;
     }
 
     button {
         font-size: 14px;
-        padding: 8px 16px;  /* Further reduced button size */
+        padding: 8px 16px;
     }
 }
 
