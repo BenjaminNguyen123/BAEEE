@@ -1,6 +1,6 @@
 // Initialize EmailJS with your public key
 (function() {
-    emailjs.init('Yeu6Sal3fQ-UYRI7Wi');  // Replace with your actual EmailJS public key
+    emailjs.init('eu6Sal3fQ-UYRI7Wi');  // Replace with your actual EmailJS public key
 })();
 
 function sendEmail(templateParams) {
