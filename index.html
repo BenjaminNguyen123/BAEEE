@@ -6,11 +6,12 @@ body {
     align-items: center;
     height: 100vh;
     background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ffecd2, #fcb69f);
-    overflow: hidden;
     margin: 0;
     position: relative;
+    overflow: hidden;
 }
 
+/* Make container scrollable */
 .container {
     text-align: center;
     padding: 50px;
@@ -20,6 +21,8 @@ body {
     display: none;
     width: 60%;
     max-width: 800px;
+    max-height: 100vh; /* Set max height to viewport height */
+    overflow-y: auto;  /* Enable vertical scrolling */
 }
 
 .container.active {
@@ -56,9 +59,9 @@ input {
 }
 
 .option {
-    padding: 10px;  /* Reduced padding */
-    font-size: 14px;  /* Reduced font size */
-    margin: 10px;  /* Reduced margin */
+    padding: 10px;
+    font-size: 14px;
+    margin: 10px;
     border-radius: 10px;
     cursor: pointer;
     background-color: #f2f2f2;
@@ -67,7 +70,7 @@ input {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: calc(50% - 20px);  /* Adjusted width for two items per row */
+    width: calc(50% - 20px); /* Two items per row */
 }
 
 .option.selected {
@@ -78,11 +81,11 @@ input {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;  /* Reduced gap between items */
+    gap: 10px;
     margin: 10px 0;
 }
 
-/* Smaller image size for better fit */
+/* Adjust image size */
 .option img {
     width: 90px;
     height: 90px;
@@ -95,31 +98,8 @@ input {
     transform: scale(1.05);
 }
 
-/* Responsive slider styling */
-input[type="range"] {
-    width: 100%;
-    height: 10px;  /* Reduced slider height */
-    background: linear-gradient(to right, #ff0080, #ff8c00, #ffff00, #8cff00, #00ffcc);
-    border-radius: 10px;
-    outline: none;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #fff;
-    border: 2px solid #ff6b6b;
-    cursor: pointer;
-}
-
-/* Media query for smaller screens (max-width: 600px) */
+/* Media query for mobile screens (max-width: 600px) */
 @media only screen and (max-width: 600px) {
-    body {
-        flex-direction: column;
-        padding: 10px;
-    }
-
     .container {
         width: 95%;
         padding: 20px;
@@ -142,27 +122,23 @@ input[type="range"]::-webkit-slider-thumb {
 
     .option {
         padding: 10px;
-        font-size: 12px;  /* Further reduced font size for mobile */
+        font-size: 12px;
         margin: 10px;
-        width: calc(50% - 10px);  /* Adjusted width for smaller screens */
+        width: calc(50% - 10px); /* Two items per row */
     }
 
     .options-grid {
         justify-content: center;
         flex-wrap: wrap;
-        gap: 5px;  /* Reduced gap for mobile */
+        gap: 5px;
     }
 
-    /* Smaller image size for mobile */
     .option img {
-        width: 80px;  /* Further reduced image size for mobile */
+        width: 80px;
         height: 80px;
     }
-
-    input[type="range"] {
-        height: 8px;
-    }
 }
+
 
 /* Colorful range slider styles */
 input[type="range"] {
